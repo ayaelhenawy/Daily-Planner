@@ -21,7 +21,17 @@ const deleteTask =async(req,res)=>{
 
 }
 
+const allTasks =async(req,res)=>{
+    let task= await taskModel.find().populate('createdBy','name -_id')
+    if(task)
+    res.json({message:"success",task})
+    else res.json({message:"No task is founded.."})
+
+}
+
+
+
 
 export{
-    addTask, updateTask,deleteTask
+    addTask, updateTask,deleteTask,allTasks
 }
