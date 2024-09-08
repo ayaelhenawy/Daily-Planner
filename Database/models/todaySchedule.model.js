@@ -1,9 +1,9 @@
 import mongoose, { Types } from "mongoose";
 
-const scheduleSchema= new mongoose.Schema({
-    timeSchedule:String,
+const taskSchema= new mongoose.Schema({
+    timeTask:String,
     description:String,
     createdBy:mongoose.Types.ObjectId
 },{timestamps:true});
 
-export const scheduleModel=mongoose.model('todaySchedule',scheduleSchema);
+export const taskModel=mongoose.model('todaySchedule',taskSchema);
