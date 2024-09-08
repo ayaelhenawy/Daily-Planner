@@ -13,7 +13,15 @@ const updateTask =async(req,res)=>{
     res.json({message:"success",task})
 }
 
+const deleteTask =async(req,res)=>{
+    let task= await taskModel.findByIdAndDelete(req.params.id)
+    if(task)
+    res.json({message:"success",task})
+    else res.json({message:"this task not found.."})
+
+}
+
 
 export{
-    addTask, updateTask
+    addTask, updateTask,deleteTask
 }
