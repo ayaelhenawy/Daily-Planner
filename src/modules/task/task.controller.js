@@ -1,5 +1,5 @@
 import { taskModel } from "../../../Database/models/todaySchedule.model.js"
-
+import jwt from 'jsonwebtoken'
 
 
 const addTask= async(req,res)=>{
@@ -10,7 +10,9 @@ const addTask= async(req,res)=>{
 
 const updateTask =async(req,res)=>{
     let task= await taskModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
-    res.json({message:"success",task})
+    if(task)
+        res.json({message:"success",task})
+        else res.json({message:"this task not found.."})
 }
 
 const deleteTask =async(req,res)=>{
@@ -22,15 +24,11 @@ const deleteTask =async(req,res)=>{
 }
 
 const allTasks =async(req,res)=>{
-    let task= await taskModel.find().populate('createdBy','name -_id')
-    if(task)
-    res.json({message:"success",task})
-    else res.json({message:"No task is founded.."})
-
-}
-
-
-
+            let task= await taskModel.find().populate('createdBy','name -_id')
+            if(task)
+            res.json({message:"success",task})
+            else res.json({message:"No task is founded.."})
+    }
 
 export{
     addTask, updateTask,deleteTask,allTasks
