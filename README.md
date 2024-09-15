@@ -53,16 +53,5 @@ The Daily Planner is a web application designed for effective daily schedule man
 
    The application will be accessible at `http://localhost:3000`.
 
-## Usage
-
-1. **User Authentication:**
-   - **Sign Up:** Register a new account and verify your email.
-   - **Sign In:** Log in with your credentials.
-
-2. **Task Management:**
-   - **Add Task:** Use the form to add new tasks.
-   - **Update Task:** Edit tasks from your schedule.
-   - **Delete Task:** Remove tasks as needed.
-
 
 
